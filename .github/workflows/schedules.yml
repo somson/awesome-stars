@@ -1,9 +1,8 @@
-name: Generate readme file
-on:
-  schedule:
-  - cron: 30 14 * * *
+name: update awesome-stars
+on: workflow_dispatch
 jobs:
-  Awesome-stars:
+  awesome-stars:
+    name: update awesome-stars
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -19,5 +18,3 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: starred --username somson --repository awesome-stars --sort --token ${GITHUB_TOKEN} --message 'stars update by github actions cron'
-
-
